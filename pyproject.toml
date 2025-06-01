@@ -8,6 +8,7 @@ dependencies = [
     "accelerate>=1.6.0",
     "ipykernel>=6.29.5",
     "matplotlib>=3.10.1",
+    "streamlit>=1.45.1",
     "tqdm>=4.67.1",
     "transformers>=4.51.3",
 ]
