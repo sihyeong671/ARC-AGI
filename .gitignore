@@ -6,6 +6,8 @@ dist/
 wheels/
 *.egg-info
 
+dataset/
+
 # Virtual environments
 .venv
 uv.lock

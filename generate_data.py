@@ -3,15 +3,20 @@ import random
 import json
 
 
-# 2차원 인식
+# 2차원 인식 평가 데이터 셋 생성 스크립트
 # 인덱스는 항상 0부터 시작
 
-#     1. 0과 1로 이루어진 일반적인 행렬
-#     2. 0~9의 랜덤한 숫자로 이루어진 행렬
-#     3. 찾아야할 숫자가 여러개인 경우
-#     4. 숫자를 주고 좌표를 출력하는 것이 아닌 좌표를 주고 숫자를 출력
+# v1. 0과 1로 이루어진 일반적인 행렬에서 1의 위치 찾기
+# v2. 0 ~ 9의 랜덤한 숫자로 이루어진 행렬 + 찾아야할 숫자가 여러개
+# v3. 0, 1로 이루어진 행렬에서 1의 좌표 이동
 
-#     모두 생성하면 너무 많기 때문에 샘플링 하여 json으로 저장
+# 등등
+# target number가 두개 있는 열 or 행
+# 열 or 행 swap
+
+# TODO
+# v4
+# v5
 
 DATA_DIR = "dataset/"
 os.makedirs(DATA_DIR, exist_ok=True)
@@ -46,7 +51,7 @@ def gen_data_v1():
             "coordinate": coor
         })
 
-    with open("dataset_1.json", "w") as f:
+    with open("dataset_v1.json", "w") as f:
         json.dump(dataset, f, indent=2)
 
 
@@ -90,8 +95,7 @@ def gen_data_v2():
         with open("dataset_v2.json", "w") as f:
             json.dump(dataset, f, indent=2)
 
-
-# gen_data_v1()
+gen_data_v1()
 gen_data_v2()
 
 def generate_eval_data():
