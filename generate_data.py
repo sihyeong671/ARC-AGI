@@ -51,7 +51,7 @@ def gen_data_v1():
             "coordinate": coor
         })
 
-    with open("dataset_v1.json", "w") as f:
+    with open(f"{DATA_DIR}/dataset_v1.json", "w") as f:
         json.dump(dataset, f, indent=2)
 
 
@@ -92,7 +92,7 @@ def gen_data_v2():
             "coordinates": list(target_position)
         })
 
-        with open("dataset_v2.json", "w") as f:
+        with open(f"{DATA_DIR}/dataset_v2.json", "w") as f:
             json.dump(dataset, f, indent=2)
 
 gen_data_v1()
