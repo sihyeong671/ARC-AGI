@@ -36,7 +36,7 @@ def make_input(inputs: dict) -> str:
     
     return prompt
 
-def parse_llm_output(text: str) -> str:
+def parse_llm_arc_output(text: str) -> str:
     m = re.search(r"\[\[\s*.*?\s*\]\]", text)
     if not m:
         return [[0, 0], [0, 0]]
@@ -44,3 +44,18 @@ def parse_llm_output(text: str) -> str:
         return ast.literal_eval(m.group(0))
     except(ValueError, SyntaxError):
         return [[0, 0], [0, 0]]
+    
+
+def parse_llm_custom_output(text: str) -> str | None:
+    m = re.search(r"\[\s*.*?\s*\]", text)
+    if not m:
+        return None
+    try:
+        return ast.literal_eval(m.group(0))
+    except(ValueError, SyntaxError):
+        return None
+    
+
+if __name__ == "__main__":
+    text = "text [1, 3, 5, 33, 5 ,'aa'  ] hi"
+    print(parse_llm_custom_output(text))
